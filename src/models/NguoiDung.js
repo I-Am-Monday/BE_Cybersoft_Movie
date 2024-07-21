@@ -31,6 +31,10 @@ class NguoiDung extends Sequelize.Model {
     loai_nguoi_dung: {
       type: DataTypes.STRING(20),
       allowNull: true
+    },
+    access_token: {
+      type: DataTypes.STRING(250),
+      allowNull: true
     }
   }, {
     sequelize,

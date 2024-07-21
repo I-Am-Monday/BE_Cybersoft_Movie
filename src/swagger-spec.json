@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "A sample API"
   },
-  "host": "localhost:8081",
+  "host": "localhost:8080",
   "basePath": "/",
   "swagger": "2.0",
   "paths": {
@@ -57,6 +57,47 @@
           }
         }
       }
+    },
+    "/api/QuanLyNguoiDung/DangNhap": {
+      "post": {
+        "tags": ["QuanLyNguoiDung"],
+        "summary": "Đăng ký người dùng mới",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object that needs to be added",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "mat_khau": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Đăng Nhập thành công",
+            "schema": {
+              "$ref": "#/definitions/RegistrationResponse"
+            }
+          },
+          "400": {
+            "description": "Lỗi dữ liệu đầu vào",
+            "schema": {
+              "$ref": "#/definitions/RegistrationResponse"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -91,7 +132,7 @@
   "tags": [
     {
       "name": "QuanLyNguoiDung",
-      "description": "User management operations"
+      "description": "Các thao tác quản lý người dùng"
     }
   ]
 }

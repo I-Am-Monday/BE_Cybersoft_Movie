@@ -5,7 +5,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-spec.json');
 
 var options = {
-  customCssUrl: 'http://localhost:8081',
+  customCssUrl: 'http://localhost:8080',
 };
 
 const app = express();
@@ -16,6 +16,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options))
 
 app.use('/api', rootRouter);
 
-app.listen(8081, () => {
+app.listen(8080, () => {
     console.log('Server is running on port 8080');
 });
