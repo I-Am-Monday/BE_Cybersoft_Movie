@@ -1,0 +1,97 @@
+{
+  "info": {
+    "title": "Hello World",
+    "version": "1.0.0",
+    "description": "A sample API"
+  },
+  "host": "localhost:8081",
+  "basePath": "/",
+  "swagger": "2.0",
+  "paths": {
+    "/api/QuanLyNguoiDung/DangKy": {
+      "post": {
+        "tags": ["QuanLyNguoiDung"],
+        "summary": "Đăng ký người dùng mới",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object that needs to be added",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ho_ten": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "so_dt": {
+                  "type": "string"
+                },
+                "mat_khau": {
+                  "type": "string"
+                },
+                "loai_nguoi_dung": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Đăng ký thành công",
+            "schema": {
+              "$ref": "#/definitions/RegistrationResponse"
+            }
+          },
+          "400": {
+            "description": "Lỗi dữ liệu đầu vào",
+            "schema": {
+              "$ref": "#/definitions/RegistrationResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Login": {
+      "required": ["username", "password"],
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Booking": {
+      "required": ["details"],
+      "properties": {
+        "details": {
+          "type": "string"
+        }
+      }
+    },
+    "RegistrationResponse": {
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Registration status message"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "QuanLyNguoiDung",
+      "description": "User management operations"
+    }
+  ]
+}
